@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/constant.dart';
 import 'package:teachme/featuers/teach_me/presentation/bloc/AuthBloc.dart';
 import 'package:teachme/featuers/teach_me/presentation/bloc/AuthEvent.dart';
@@ -36,8 +37,8 @@ class LoginBtn extends StatelessWidget {
           BlocProvider.of<AuthBloc>(context)
               .add(Login(userName.text, password.text));
         },
-        child: const Text(
-          'Login',
+        child: Text(
+          translation(context).login,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
         ),
       ),

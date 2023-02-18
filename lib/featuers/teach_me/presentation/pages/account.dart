@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/constant.dart';
 import 'package:teachme/core/error/color.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
@@ -39,7 +40,7 @@ class _AccountPageState extends State<AccountPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Account",
+            Text(translation(context).personalInformation,
               style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.w600),
             ),
           ],
@@ -99,7 +100,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
               child: Column(
                   children: [
-                    SettingItem(title: "Setting",
+                    SettingItem(title: translation(context).settings,
                       leadingIcon: "assets/icons/setting.svg",
                       bgIconColor: blue,
                       onTap: (){

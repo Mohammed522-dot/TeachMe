@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/error/color.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/account.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/home_page.dart';
@@ -17,30 +18,34 @@ class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
   List barItems = [
     {
       "icon" : "assets/icons/home.svg",
+      "title" : "Home",
       "active_icon" : "assets/icons/home.svg",
-      "page" : HomePage(),
+      "page" : const HomePage(),
     },
     {
       "icon" : "assets/icons/search.svg",
+      "title" : "Search",
       "active_icon" : "assets/icons/search.svg",
-      "page" : SearchPage(),
+      "page" : const SearchPage(),
     },
     {
       "icon" : "assets/icons/play.svg",
+      "title" : "Appointment",
       "active_icon" : "assets/icons/play.svg",
       "page" : Container(),
     },
 
     {
       "icon" : "assets/icons/profile.svg",
+      "title" : "Account",
       "active_icon" : "assets/icons/profile.svg",
-      "page" : AccountPage(),
+      "page" : const AccountPage(),
     },
   ];
 
 //====== set animation=====
   late final AnimationController _controller = AnimationController(
-    duration:  Duration(milliseconds: 5000),
+    duration:  const Duration(milliseconds: 3000),
     vsync: this,
   );
   late final Animation<double> _animation = CurvedAnimation(
@@ -122,11 +127,15 @@ class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(barItems.length,
-                      (index) => BottomBarItem(barItems[index]["icon"], isActive: activeTab == index, activeColor: primary,
+                      (index) =>  Column(
+                        children: [
+                          BottomBarItem(barItems[index]["icon"],barItems[index]["title"], isActive: activeTab == index, activeColor: primary,
                     onTap: (){
-                      onPageChanged(index);
+                          onPageChanged(index);
                     },
-                  )
+                  ),
+                        ],
+                      )
               )
           )
       ),

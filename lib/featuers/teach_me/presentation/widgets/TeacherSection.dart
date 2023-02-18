@@ -42,7 +42,7 @@ class TeacherSection extends StatelessWidget{
                            topLeft: Radius.circular(15),
                            topRight: Radius.circular(15),
                          ),
-                         child: Image.asset("teacher1.jpg",
+                         child: Image.asset("assets/teacher1.jpg",
                          height: 200,
                          width: 200,
                          fit: BoxFit.cover,),

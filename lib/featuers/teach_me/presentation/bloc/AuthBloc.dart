@@ -27,12 +27,7 @@ import 'package:teachme/featuers/teach_me/presentation/bloc/AuthState.dart';
             final body = jsonDecode(response.body);
             SharedPreferences pref = await SharedPreferences.getInstance();
             await pref.setString('AccessToken', body['accessToken']);
-            // await pref.setInt('UserID', body["data"]['id']);
-            // await pref.setString('UserName', body["data"]['name']);
-            // await pref.setString('Phone', body["data"]['phone']);
-            // await pref.setString('email', body["data"]['email']);
             print(pref.get("AccessToken"));
-            // print(pref.get("UserName"));
              emit(AuthLoaded());
           }
           else {

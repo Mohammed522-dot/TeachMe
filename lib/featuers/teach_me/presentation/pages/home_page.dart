@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/constant.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/Service.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/TeacherSection.dart';
@@ -73,9 +74,9 @@ class _HomePageState extends State<HomePage> {
                   ),),
                 ),
                 SizedBox(height: 10),
-                   const Padding(
+                    Padding(
                      padding: EdgeInsets.all(8.0),
-                     child: Text('Your Education Our \n Prority',
+                     child: Text(translation(context).homeSentence,
                         style: TextStyle(
                             color: Colors.white,
                           fontSize: 25,
@@ -122,16 +123,16 @@ class _HomePageState extends State<HomePage> {
                    // ),
                 SizedBox(height: 20),
                 Padding(
-                  padding: EdgeInsets.only(left: 15),
-                  child: Text("Topics",style:
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(translation(context).topics,style:
                   TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                     color: Colors.black.withOpacity(0.7),
                   ),
                   ),
                 ),
-                SizedBox(height: 15),
+
                 Container(
                   height: 100,
                   child: ListView.builder(
@@ -175,10 +176,10 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("Top Teachers",
+                  child: Text(translation(context).topTeachers,
                     style: TextStyle(
                       fontSize: 20,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.bold,
                       color: Colors.black.withOpacity(0.7),
                     ),
                   ),
