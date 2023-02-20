@@ -524,4 +524,14 @@ List chats = [
     "date": "5 hrs",
     "notify" : 0,
   },
+  {
+"image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+"fname" : "John",
+"lname" : "",
+"name": "Corey Aminoff",
+"skill": "Neurologists",
+"last_text": "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
+"date": "5 hrs",
+"notify" : 0,
+},
 ];

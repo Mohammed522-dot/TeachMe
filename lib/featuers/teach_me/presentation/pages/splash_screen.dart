@@ -53,7 +53,7 @@ class StartState extends State<SplashScreen> {
           ),
           Center(
             child: Container(
-              child: Image.asset("Teach-me-logo.png"),
+              child: Image.asset("assets/Teach-me-logo.png"),
             ),
           )
         ],

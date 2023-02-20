@@ -14,7 +14,7 @@ class DetailsScreen extends StatelessWidget{
               height: MediaQuery.of(context).size.height / 2.1,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("teacher1.jpg"),
+                  image: AssetImage("assets/teacher1.jpg"),
                   fit: BoxFit.cover,
                 ),
              borderRadius: BorderRadius.only(

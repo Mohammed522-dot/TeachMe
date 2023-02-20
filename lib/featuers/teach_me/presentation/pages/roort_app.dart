@@ -8,13 +8,14 @@ import 'package:teachme/featuers/teach_me/presentation/widgets/bottom_bar.dart';
 
 class RootApp extends StatefulWidget {
   const RootApp({ Key? key }) : super(key: key);
-
   @override
+
   _RootAppState createState() => _RootAppState();
 }
 
 class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
   int activeTab = 0;
+
   List barItems = [
     {
       "icon" : "assets/icons/home.svg",
@@ -37,7 +38,7 @@ class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
 
     {
       "icon" : "assets/icons/profile.svg",
-      "title" : "Account",
+      "title" :"Account",
       "active_icon" : "assets/icons/profile.svg",
       "page" : const AccountPage(),
     },
