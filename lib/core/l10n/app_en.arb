@@ -1,5 +1,4 @@
 {
-  "homePage": "Home",
   "marketPage": "Market",
   "login": "Login",
   "password": "Password",
@@ -22,7 +21,11 @@
   "search": "Search",
   "appointment": "Appointment",
   "account": "Account",
-
+  "seeAll": "See All",
+  "payment": "Payment",
+  "bookmark": "Bookmark",
+  "notification": "Notification",
+  "privacy": "Privacy",
   "changeLanguage": "Change Language",
   "topics": "Topics",
   "topTeachers": "Top Teachers",

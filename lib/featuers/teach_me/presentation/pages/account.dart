@@ -64,7 +64,7 @@ class _AccountPageState extends State<AccountPage> {
                 Text(profile["name"]!, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             // Container(
             //   child: Row(
             //     mainAxisAlignment: MainAxisAlignment.spaceBetween,

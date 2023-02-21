@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teachme/core/FadeAnimation.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/Service.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/login_page.dart';
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Topics', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        Text(translation(context).topics, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                         TextButton(
                             onPressed: () {},
                             child: Text('View all',)
@@ -169,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Top Rated', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        Text(translation(context).topTeachers, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                         TextButton(
                             onPressed: () {},
                             child: Text('View all',)

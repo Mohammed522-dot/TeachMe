@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/chat_item.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/custom_textfield.dart';
@@ -39,8 +40,8 @@ class _SearchPageState extends State<SearchPage> {
                 children: [
                   Expanded(
                     child: Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Search",
+                        // alignment: Alignment.,
+                        child: Text(translation(context).search,
                           style: TextStyle(fontSize: 28, color: Colors.black87, fontWeight: FontWeight.w600)
                           ,)
                     ),
@@ -56,16 +57,19 @@ class _SearchPageState extends State<SearchPage> {
 
   getChats(){
     return
-      ListView(
-          padding: EdgeInsets.only(top: 10),
-          shrinkWrap: true,
-          children: List.generate(chats.length,
-                  (index) => ChatItem(chats[index],
-                onTap: (){
+       ListView(
+            padding: EdgeInsets.only(top: 10),
+            shrinkWrap: true,
+            children: List.generate(chats.length,
+                    (index) => SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: ChatItem(chats[index],
+                  onTap: (){
 
-                },
-              )
-          )
+                  },
+                ),
+                    )
+            )
       );
   }
 }

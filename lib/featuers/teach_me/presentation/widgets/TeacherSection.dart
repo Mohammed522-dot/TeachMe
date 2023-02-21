@@ -57,6 +57,7 @@ class TeacherSection extends StatelessWidget{
                             decoration: BoxDecoration(
                               color: Color(0xFFF2F8FF),
                               shape: BoxShape.circle,
+
                             ),
                           ),
                         )

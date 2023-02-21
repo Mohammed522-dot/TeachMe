@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/error/color.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/custom_image.dart';
@@ -38,7 +39,7 @@ class _AccountPageState extends State<AccountPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Account",
+            Text(translation(context).personalInformation,
               style: TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w600),
             ),
           ],
@@ -98,7 +99,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
               child: Column(
                   children: [
-                    SettingItem(title: "Setting",
+                    SettingItem(title: translation(context).settings,
                       leadingIcon: "assets/icons/setting.svg",
                       bgIconColor: blue,
                       onTap: (){
@@ -109,7 +110,7 @@ class _AccountPageState extends State<AccountPage> {
                       padding: const EdgeInsets.only(left: 45),
                       child: Divider(height: 0, color: Colors.grey.withOpacity(0.8),),
                     ),
-                    SettingItem(title: "Payment",
+                    SettingItem(title: "",
                       leadingIcon: "assets/icons/wallet.svg",
                       bgIconColor: green,
                       onTap: (){
@@ -142,18 +143,16 @@ class _AccountPageState extends State<AccountPage> {
                     color: shadowColor.withOpacity(0.1),
                     spreadRadius: 1,
                     blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
+                    offset: const Offset(0, 1), // changes position of shadow
                   ),
                 ],
               ),
               child: Column(
                   children: [
-                    SettingItem(title: "Notification",
+                    SettingItem(title: "",
                       leadingIcon: "assets/icons/bell.svg",
                       bgIconColor: purple,
-                      onTap: (){
-
-                      },
+                      onTap: (){},
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 45),
@@ -162,14 +161,12 @@ class _AccountPageState extends State<AccountPage> {
                     SettingItem(title: "Privacy",
                       leadingIcon: "assets/icons/shield.svg",
                       bgIconColor: orange,
-                      onTap: (){
-
-                      },
+                      onTap: (){},
                     ),
                   ]
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Container(
               padding: const EdgeInsets.only(left: 15, right: 15),
               decoration: BoxDecoration(
@@ -180,13 +177,13 @@ class _AccountPageState extends State<AccountPage> {
                     color: shadowColor.withOpacity(0.1),
                     spreadRadius: 1,
                     blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
+                    offset: const Offset(0, 1), // changes position of shadow
                   ),
                 ],
               ),
               child: Column(
                   children: [
-                    SettingItem(title: "Log Out",
+                    SettingItem(title: "",
                       leadingIcon: "assets/icons/logout.svg",
                       bgIconColor: darker,
                       onTap: (){
