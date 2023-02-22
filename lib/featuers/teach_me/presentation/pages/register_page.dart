@@ -6,7 +6,10 @@ import 'package:teachme/core/AppTheme.dart';
 import 'package:teachme/core/constant.dart';
 import 'package:teachme/featuers/teach_me/presentation/bloc/AuthBloc.dart';
 import 'package:teachme/featuers/teach_me/presentation/bloc/AuthState.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterBloc.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterState.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/home_page.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/login_page.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/lodingWidget.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/login/input_field.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/spacer.dart';
@@ -64,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => AuthBloc())
+        BlocProvider(create: (_) => RegisterBloc())
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -86,24 +89,24 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         backgroundColor: Colors.white,
-        body:BlocConsumer<AuthBloc,AuthState>(
+        body:BlocConsumer<RegisterBloc,RegisterState>(
           listener: (context, state) {
-            if (state is AuthError) {
+            if (state is RegisterError) {
               buildErrorLayout();
-            } else if (state is AuthLoaded) {
+            } else if (state is RegisterLoaded) {
               clearTextData();
               Navigator
                   .of(context, rootNavigator: true)
                   .pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage()));
+                  builder: (BuildContext context) => LoginPage()));
               // showAlertDialog(context);
             }
-            else if (state is ResponseError) {
+            else if (state is RegisterResponseError) {
               ResponseErrorLayout();
             }
           },
           builder: (context, state) {
-            if (state is AuthLoading) {
+            if (state is RegisterLoading) {
               return LoadingWidget(child: buildInitialInput());
             } else {
               return buildInitialInput();

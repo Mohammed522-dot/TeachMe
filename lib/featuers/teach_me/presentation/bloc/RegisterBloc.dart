@@ -13,7 +13,8 @@ import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterState.dart';
     RegisterBloc() : super(RegisterInitial()) {
       on<RegisterEvent>((event, emit) async {
         if (event is Register) {
-          if (event.email.isEmpty || event.password.isEmpty) {
+          if (event.fname.isEmpty || event.lname.isEmpty || event.email.isEmpty || event.phone.isEmpty || event.country.isEmpty || event .city.isEmpty
+              ||event.location.isEmpty || event.password.isEmpty ||event.type_user.isEmpty) {
             emit(RegisterError());
           } else {
             emit(RegisterLoading());
@@ -24,11 +25,11 @@ import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterState.dart';
                 'lname' : event.lname,
                 'email' : event.email,
                 'phone' : event.phone,
-                'contry' : event.country,
-                'city' : event.city,
-                'location' : event.location,
+                'contry': event.country,
+                'city'  :   event.city,
+                'location': event.location,
                 'password': event.password,
-                'type_user' : event.type_user
+                'type_user': event.type_user
               }
           );
           if(response.statusCode == 200){

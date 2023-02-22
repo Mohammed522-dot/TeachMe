@@ -9,6 +9,7 @@ import 'package:teachme/core/constant.dart';
 import 'package:teachme/featuers/teach_me/presentation/bloc/AuthBloc.dart';
 import 'package:teachme/featuers/teach_me/presentation/bloc/AuthState.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/home_page.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/register_page.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/roort_app.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/signUp_page.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/lodingWidget.dart';
@@ -173,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                Text(translation(context).dontHaveAcc,style: TextStyle( fontSize: 17, color: Colors.black)),
               const SizedBox(width: 5),
               GestureDetector(
-                  onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));},
+                  onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterPage()));},
                   child: Text(translation(context).signUp, style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color:Colors.blue ),)
               ),
             ]

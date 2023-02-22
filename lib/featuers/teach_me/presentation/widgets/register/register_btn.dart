@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teachme/core/constant.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterBloc.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterEvent.dart';
 
 class RegisterBtn extends StatelessWidget {
   const RegisterBtn(
@@ -29,8 +32,8 @@ class RegisterBtn extends StatelessWidget {
             minimumSize: const Size(double.infinity, 54),
             backgroundColor:  Colors.blue),
         onPressed: () {
-          // BlocProvider.of<AuthBloc>(context)
-          //     .add(Login(userName.text, password.text));
+          BlocProvider.of<RegisterBloc>(context)
+              .add(Register("fff","ff","fff","f","fff","f","ff","ff","f"));
         },
         child: const Text(
           'Sign Up',
