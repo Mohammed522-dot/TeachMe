@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:teachme/core/constant.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterBloc.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterEvent.dart';
 
 class SignUpForm extends StatelessWidget {
   SignUpForm({
@@ -9,7 +12,7 @@ class SignUpForm extends StatelessWidget {
   }) : super(key: key);
 
   final GlobalKey formKey;
-
+  final _formKey = GlobalKey<FormState>();
   late String _userName, _email, _password, _phoneNumber;
 
   @override
@@ -65,6 +68,21 @@ class SignUpForm extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(hintText: "*****"),
             validator: (pass) => MatchValidator(errorText: "Password do not  match").validateMatch(pass!, _password),
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  // Sign up form is done
+                  BlocProvider.of<RegisterBloc>(context)
+                      .add(Register("","","","","","","","",""));
+                  // It saved our inputs
+                  _formKey.currentState!.save();
+                }
+              },
+              child: Text("Sign Up"),
+            ),
           ),
         ],
       ),
