@@ -64,8 +64,8 @@ class _HomePageState extends State<HomePage> {
                 // ),
               ]),
                 SizedBox(height: 15,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text('Hi,Mohammed',
                   style: TextStyle(
                     color: Colors.white,
@@ -73,11 +73,11 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.w500,
                   ),),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                     Padding(
-                     padding: EdgeInsets.all(8.0),
+                     padding: const EdgeInsets.all(8.0),
                      child: Text(translation(context).homeSentence,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.w500,
@@ -143,10 +143,10 @@ class _HomePageState extends State<HomePage> {
                     return Column(
                       children: [
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
                           height: 60,
                           width: 60,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               color: Colors.lightBlueAccent,
                               shape: BoxShape.circle,
                               boxShadow:[
@@ -157,11 +157,11 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Icon(Icons.android_sharp),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         Text("topic name",
                           style: TextStyle(
                             fontSize: 16,
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                     );
                   }),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(translation(context).topTeachers,
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 TeacherSection(),
               ],
             ),

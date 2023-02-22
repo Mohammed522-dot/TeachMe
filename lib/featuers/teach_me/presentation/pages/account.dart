@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/constant.dart';
 import 'package:teachme/core/error/color.dart';
@@ -191,7 +192,10 @@ class _AccountPageState extends State<AccountPage> {
                     SettingItem(title: "Log Out",
                       leadingIcon: "assets/icons/logout.svg",
                       bgIconColor: darker,
-                      onTap: (){
+                      onTap: () async{
+                        var userPref = await SharedPreferences.getInstance();
+                        userPref.remove("AccessToken");
+                      Navigator.pop(context);
                       },
                     ),
                   ]

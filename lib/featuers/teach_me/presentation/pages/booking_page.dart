@@ -1,7 +1,10 @@
 
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/success_booked.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/custom_button.dart';
 
 class BookingPage extends StatefulWidget{
@@ -107,7 +110,7 @@ class _BookingPageState extends State<BookingPage>{
                  onPressed: (){
                  print(_dateSelected);
                  print(_dateSelected);
-                // Navigator.push(context, MaterialPageRoute(builder: (context)=>AppointmentBooked()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AppointmentBooked()));
                },
             disable: _timeSelected && _timeSelected ?  false : true,
              ),

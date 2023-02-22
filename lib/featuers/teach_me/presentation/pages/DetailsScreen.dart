@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:teachme/core/constant.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/booking_page.dart';
 
 class DetailsScreen extends StatelessWidget{
   @override
@@ -174,7 +176,7 @@ class DetailsScreen extends StatelessWidget{
                   ),
                   SizedBox(width: 15,),
                   Text(
-                    "Lorem Ipsum has been the industry's"" standard dummy text ever since the",
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -182,14 +184,19 @@ class DetailsScreen extends StatelessWidget{
                     ),
                     textAlign: TextAlign.justify,
                   ),
-                  SizedBox(width: 15,),
-                  Text(
-                    "Book Date",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black.withOpacity(0.6),
-                    ),
+              const SizedBox(height: defaultPadding * 2),
+
+              const SizedBox(height: defaultPadding * 2),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> BookingPage()));
+                    },
+
+                  child: Text("Appointment"),
+                ),
+
                   ),
                 ],
               ),

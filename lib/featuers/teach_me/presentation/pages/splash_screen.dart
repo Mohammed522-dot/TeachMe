@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/login_page.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/roort_app.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/signUp_page.dart';
 
 void main() {
@@ -24,14 +26,27 @@ class StartState extends State<SplashScreen> {
 
   startTime() async {
     var duration = Duration(seconds: 3);
-    return new Timer(duration, route);
+    return new Timer(duration, isLoged);
   }
 
-  route() {
-    Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => LoginPage()
-    ));
+  isLoged() async{
+    var userPref = await SharedPreferences.getInstance();
+    String token = userPref.get("AccessToken").toString();
+
+    if(token.isEmpty){
+      Navigator.pushReplacement(context, MaterialPageRoute(
+          builder: (context) => const LoginPage()));
+    } else {
+      Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (context) => const RootApp()));
+    }
   }
+
+  // route() {
+  //   Navigator.pushReplacement(context, MaterialPageRoute(
+  //       builder: (context) => LoginPage()
+  //   ));
+  // }
 
   @override
   Widget build(BuildContext context) {
