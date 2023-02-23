@@ -11,14 +11,24 @@ class RegisterBtn extends StatelessWidget {
         required this.firstName,
         required this.lastName,
         required this.email,
-        required this.password})
+        required this.phone,
+        required this.country,
+        required this.city,
+        required this.area,
+        required this.password,
+        required this.user_type})
       : super(key: key);
 
   final FocusNode focusNode;
   final TextEditingController firstName;
   final TextEditingController lastName;
   final TextEditingController email;
+  final TextEditingController phone;
+  final TextEditingController country;
+  final TextEditingController city;
+  final TextEditingController area;
   final TextEditingController password;
+  final String user_type;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +42,16 @@ class RegisterBtn extends StatelessWidget {
             minimumSize: const Size(double.infinity, 54),
             backgroundColor:  Colors.blue),
         onPressed: () {
+          print(firstName);
+          print(lastName);
+          print(email);
+          print(phone);
+          print(country);
+          print(city);
+          print(password);
+          print(user_type);
           BlocProvider.of<RegisterBloc>(context)
-              .add(Register("fff","ff","fff","f","fff","f","ff","ff","f"));
+              .add(Register(firstName.text,lastName.text,email.text,phone.text,country.text,city.text,area.text,password.text,user_type));
         },
         child: const Text(
           'Sign Up',

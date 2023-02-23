@@ -4,6 +4,7 @@ import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/core/constant.dart';
 import 'package:teachme/core/error/color.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/login_page.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/custom_image.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/setting_box.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/setting_item.dart';
@@ -195,7 +196,7 @@ class _AccountPageState extends State<AccountPage> {
                       onTap: () async{
                         var userPref = await SharedPreferences.getInstance();
                         userPref.remove("AccessToken");
-                      Navigator.pop(context);
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
                       },
                     ),
                   ]

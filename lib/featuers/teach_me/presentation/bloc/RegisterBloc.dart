@@ -40,10 +40,11 @@ import 'package:teachme/featuers/teach_me/presentation/bloc/RegisterState.dart';
              emit(RegisterLoaded());
           }
           else {
-            final error = jsonDecode(response.body);
-           await error['errors']['en'];
+           //  final error = jsonDecode(response.body);
+           // await error['errors']['en'];
+            print(response.statusCode);
             emit(RegisterResponseError());
-            print(error);
+            // print(error);
           }
         }
       }

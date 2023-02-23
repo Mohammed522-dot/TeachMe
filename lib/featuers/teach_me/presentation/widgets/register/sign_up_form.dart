@@ -69,21 +69,7 @@ class SignUpForm extends StatelessWidget {
             decoration: InputDecoration(hintText: "*****"),
             validator: (pass) => MatchValidator(errorText: "Password do not  match").validateMatch(pass!, _password),
           ),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  // Sign up form is done
-                  BlocProvider.of<RegisterBloc>(context)
-                      .add(Register("","","","","","","","",""));
-                  // It saved our inputs
-                  _formKey.currentState!.save();
-                }
-              },
-              child: Text("Sign Up"),
-            ),
-          ),
+
         ],
       ),
     );

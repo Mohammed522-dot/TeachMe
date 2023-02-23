@@ -30,15 +30,17 @@ class StartState extends State<SplashScreen> {
   }
 
   isLoged() async{
-    var userPref = await SharedPreferences.getInstance();
-    String token = userPref.get("AccessToken").toString();
+    final SharedPreferences userPref = await SharedPreferences.getInstance();
+    var token = userPref.getString("AccessToken");
 
-    if(token.isEmpty){
+    print(token);
+
+  if(token!= null){
       Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (context) => const LoginPage()));
+          builder: (context) =>  RootApp()));
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => const RootApp()));
+        builder: (context) => LoginPage()));
     }
   }
 

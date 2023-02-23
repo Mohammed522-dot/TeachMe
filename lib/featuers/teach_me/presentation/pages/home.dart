@@ -4,6 +4,7 @@ import 'package:teachme/core/FadeAnimation.dart';
 import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/Service.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
+import 'package:teachme/featuers/teach_me/presentation/pages/account.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/login_page.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/TeacherSection.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/category_box.dart';
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           leading: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+              //  Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountPage()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -142,11 +143,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                       //  ),
-        getCategories(),
-                  Column(
-
+       getCategories(),
+    //               Padding(
+    //
     //                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    //                 height: 300,
+    //                 // height: 300,
     //                 child: GridView.builder(
     //                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
     //                       crossAxisCount: 3,
@@ -162,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // //);
     //                     }
     //                 ),
-                  ),
+    //               ),
                   SizedBox(height: 20,),
                   // FadeAnimation(1.3,
                   Padding(
@@ -177,24 +178,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ],
                     ),
-
-                  //)
-    ),
+                  ),
                   Container(
-                      child: TeacherSection()
-            //         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            //         height: 120,
-            //         child: ListView.builder(
-            //             scrollDirection: Axis.horizontal,
-            //             itemCount: workers.length,
-            //             itemBuilder: (BuildContext context, int index) {
-            //               // return FadeAnimation((1.0 + index) / 4,
-            // workerContainer(workers[index][0], workers[index][1], workers[index][2], workers[index][3]);
-            //   //);
-            //             }
-            //         ),
+                      child: TeacherSection(),
                   ),
                   SizedBox(height: 150,),
+
     ],
             )
         )

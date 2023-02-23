@@ -33,6 +33,7 @@ class LoginBtn extends StatelessWidget {
             minimumSize: const Size(double.infinity, 54),
             backgroundColor:  Colors.blue),
         onPressed: () {
+          print(userName);
         //  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
           BlocProvider.of<AuthBloc>(context)
               .add(Login(userName.text, password.text));

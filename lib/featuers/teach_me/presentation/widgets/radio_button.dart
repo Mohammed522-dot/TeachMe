@@ -11,11 +11,11 @@ class RadioGroupWidget extends State {
     Widget build(BuildContext context) {
       return Column(
        children: <Widget>[
-          Padding(
-              padding: EdgeInsets.all(14.0),
-              child: Text('Register as ' + '$radioButtonItem',
-                  style: TextStyle(fontSize: 21))
-          ),
+          // Padding(
+          //     padding: EdgeInsets.all(0),
+          //     child: Text('Register as ' + '$radioButtonItem',
+          //         style: TextStyle(fontSize: 21))
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

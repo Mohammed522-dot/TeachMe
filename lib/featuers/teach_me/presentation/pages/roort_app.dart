@@ -16,34 +16,7 @@ class RootApp extends StatefulWidget {
 
 class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
   int activeTab = 0;
-  List barItems = [
-    {
-      "icon" : "assets/icons/home.svg",
-      "title" : "Home",
-      "active_icon" : "assets/icons/home.svg",
-      "page" : const HomeScreen(),
-    },
-    {
-      "icon" : "assets/icons/search.svg",
-      "title" : "Search",
-      "active_icon" : "assets/icons/search.svg",
-      "page" : const SearchPage(),
-    },
-    {
-      "icon" : "assets/icons/play.svg",
-      "title" : "Appointment",
-      "active_icon" : "assets/icons/play.svg",
-      "page" : Container(),
-    },
-
-    {
-      "icon" : "assets/icons/profile.svg",
-      "title" : "Account",
-      "active_icon" : "assets/icons/profile.svg",
-      "page" : const AccountPage(),
-    },
-  ];
-
+  late List barItems;
 //====== set animation=====
   late final AnimationController _controller = AnimationController(
     duration:  const Duration(milliseconds: 3000),
@@ -86,6 +59,33 @@ class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+    barItems = [
+      {
+        "icon" : "assets/icons/home.svg",
+        "title" : translation(context).home,
+        "active_icon" : "assets/icons/home.svg",
+        "page" : const HomeScreen(),
+      },
+      {
+        "icon" : "assets/icons/search.svg",
+        "title" : translation(context).search,
+        "active_icon" : "assets/icons/search.svg",
+        "page" : const SearchPage(),
+      },
+      {
+        "icon" : "assets/icons/play.svg",
+        "title" : translation(context).appointment,
+        "active_icon" : "assets/icons/play.svg",
+        "page" : Container(),
+      },
+
+      {
+        "icon" : "assets/icons/profile.svg",
+        "title" : translation(context).personalInformation,
+        "active_icon" : "assets/icons/profile.svg",
+        "page" : const AccountPage(),
+      },
+    ];
     return Scaffold(
         backgroundColor: appBgColor,
         bottomNavigationBar: getBottomBar(),
@@ -110,7 +110,7 @@ class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
       width: double.infinity,
       decoration: BoxDecoration(
           color: bottomBarColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(25),
               topRight: Radius.circular(25)
           ),
@@ -124,7 +124,7 @@ class _RootAppState extends State<RootApp>  with TickerProviderStateMixin{
           ]
       ),
       child: Padding(
-          padding: const EdgeInsets.only(left: 25, right: 25, bottom: 15,),
+          padding: const EdgeInsets.only(left: 25, right: 25,),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(barItems.length,
