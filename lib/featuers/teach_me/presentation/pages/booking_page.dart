@@ -85,11 +85,11 @@ class _BookingPageState extends State<BookingPage>{
                      ),
                      borderRadius: BorderRadius.circular(15),
                      color: _currentIndex == index
-                       ? Colors.cyan
+                       ? Colors.blue
                          : null,
                    ),
                    alignment: Alignment.center,
-                   child: Text('${index + 8}:00 ${index + 9 > 11 ? "PM": "AM"}',
+                   child: Text('${index + 8}:00 ${index + 9 > 12 ? "PM": "AM"}',
                    style: TextStyle(
                      fontWeight: FontWeight.bold,
                      color: _currentIndex == index ? Colors.white : null,
@@ -97,13 +97,13 @@ class _BookingPageState extends State<BookingPage>{
                  ),
                );
              },
-               childCount: 8
+               childCount: 12
              ),
              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 1.5),
          ),
          SliverToBoxAdapter(
            child: Container(
-             padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 80),
+             padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
              child:  Button(
                width: double.infinity,
                title: 'Make Appointment',
@@ -131,7 +131,7 @@ class _BookingPageState extends State<BookingPage>{
         rowHeight: 48,
       calendarStyle: const CalendarStyle(
         todayDecoration:
-          BoxDecoration(color: Colors.cyan, shape: BoxShape.circle)
+          BoxDecoration(color: Colors.blue, shape: BoxShape.circle)
       ),
       availableCalendarFormats: const{
           CalendarFormat.month: 'Month',

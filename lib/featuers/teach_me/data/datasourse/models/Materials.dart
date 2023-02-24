@@ -1,31 +1,30 @@
 class Materials {
   final int id;
   final String name;
-
-  final String image;
+  // final String image;
   Materials({
     required this.id,
     required this.name,
-    required this.image,
+    // required this.image,
   });
   factory Materials.fromJson(Map<String, dynamic> json) {
     return Materials(
-      id: json['id'] as int,
-      name: json['MaterialName'] as String,
-      image: json['image'] as String,
+      id: json['_id'] as int,
+      name: json['materialName'] as String,
+      // image: json['image'] as String,
 
     );
   }
 
   Map<String, dynamic> toJson() =>
       {
-        "id": id,
-        "MaterialName": name,
-        "image": image,
+        "_id": id,
+        "materialName": name,
+        // "image": image,
 
       };
   @override
   String toString() {
-    return '{ id: $id, MaterialName: $name,image: $image}';
+    return '{_id: $id, materialName: $name}';
   }
 }

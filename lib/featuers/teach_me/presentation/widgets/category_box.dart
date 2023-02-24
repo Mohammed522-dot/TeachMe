@@ -35,12 +35,11 @@ class CategoryBox extends StatelessWidget {
                 child: SvgPicture.asset(data["icon"], color: isSelected ? selectedColor : textColor, width: 30, height: 30,)
             ),
             SizedBox(height: 10,),
-            Text(data["name"], maxLines: 1, overflow: TextOverflow.fade,
+            Text(data["materialName"], maxLines: 1, overflow: TextOverflow.fade,
               style: TextStyle(color: textColor, fontWeight: FontWeight.w500),
             )
           ],
         ),
-      )
-    ;
+      );
   }
 }

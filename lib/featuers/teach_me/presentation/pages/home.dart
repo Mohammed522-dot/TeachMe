@@ -1,9 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teachme/core/FadeAnimation.dart';
 import 'package:teachme/core/classes/language_constants.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/Service.dart';
 import 'package:teachme/featuers/teach_me/data/datasourse/models/data.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/MaterialsBloc.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/MaterialsEvent.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/MaterialsState.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/account.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/login_page.dart';
 import 'package:teachme/featuers/teach_me/presentation/widgets/TeacherSection.dart';
@@ -31,7 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
     ['Michelle Baldwin', 'Cleaner', 'teacher1.jpg', 4.6],
     ['Brenon Kalu', 'Driver', 'teacher1.jpg', 4.4]
   ];
-
+ @override
+  void initState() {
+   getMaterials();
+    super.initState();
+  }
+  void getMaterials() async{
+    BlocProvider.of<MaterialsBloc>(context).add(GetMaterial());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,23 +206,32 @@ class _HomeScreenState extends State<HomeScreen> {
       SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(15, 10, 0, 10),
         scrollDirection: Axis.horizontal,
-        child: Row(
-            children: List.generate(categories.length, (index) =>
-                Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: CategoryBox(
-                      selectedColor: Colors.white,
-                      data: categories[index],
-                      onTap: (){
-                        setState(() {
-                          selectedCollection =  index;
-                        });
-                      },
-                    )
-                )
-            )
+        child: BlocBuilder<MaterialsBloc,MaterialsState>(
+          builder: (context,state) {
+            if (state is MaterialsLoaded) {
+              return Row(
+                  children: List.generate(state.materials.length, (index) =>
+                      Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: CategoryBox(
+                            selectedColor: Colors.white,
+                            data: state.materials[index],
+                            onTap: () {
+                              setState(() {
+                                selectedCollection = index;
+                              });
+                            },
+                          )
+                      )
+                  )
+              );
+            }
+            return const Center(child: CircularProgressIndicator(),);
+          }
+
         ),
       );
+
   }
   serviceContainer(String image, String name, int index) {
     return GestureDetector(

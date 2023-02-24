@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teachme/core/classes/language_constants.dart';
+import 'package:teachme/featuers/teach_me/presentation/bloc/MaterialsBloc.dart';
 import 'package:teachme/featuers/teach_me/presentation/pages/splash_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 void main() {
@@ -24,7 +26,6 @@ class _MyApp extends State<MyApp> {
     setState(() {
       _locale = locale;
     });
-
   }
   @override
   void didChangeDependencies() {
@@ -33,42 +34,45 @@ class _MyApp extends State<MyApp> {
   }
   @override
   Widget build(BuildContext context) {
-    if (this._locale == null) {
-      return Container(
-        child: Center(
-          child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.blue[800])),
-        ),
+    if (_locale == null) {
+      return Center(
+        child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(Colors.blue[800])),
       );
+    } else {
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_)=> MaterialsBloc())
+        ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          locale: _locale,
+          ));
     }
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: _locale,
-      );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-    );
-  }
-}
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({Key? key, required this.title}) : super(key: key);
+//
+//   final String title;
+//
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
+//
+// class _MyHomePageState extends State<MyHomePage> {
+//
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//     );
+//   }
+// }
